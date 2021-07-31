@@ -367,7 +367,7 @@ FodyWeavers.xsd
 ##
 ## Visual studio for Mac
 ##
-
+ssl
 
 # globs
 Makefile.in
