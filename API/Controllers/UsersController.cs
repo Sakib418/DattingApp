@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -16,11 +17,12 @@ namespace API.Controllers
         {
             _context = context;
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult<IEnumerable<AppUser>> getUsers(){
             return _context.Users.ToList();
         }
+        [Authorize]
         [HttpGet("{Id}")]
         public ActionResult<AppUser> getUser(int id){
             return _context.Users.Find(id);
